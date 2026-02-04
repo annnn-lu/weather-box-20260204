@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>天氣盒子</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="daybox">
+  <svg style="position:absolute; width:0; height:0" aria-hidden="true">
+    <defs>
+      <radialGradient id="sunGradient">
+        <stop offset="0%" stop-color="#FFE8A3"></stop>
+        <stop offset="100%" stop-color="#E3C876"></stop>
+      </radialGradient>
+      <symbol id="icon-cloud" viewBox="0 0 64 64">
+        <path class="cloud-shape" d="M16 32h30c8 0 14-5 14-12s-6-12-14-12c-1 0-2 0-3 .3C40 4 35 0 28 0 19 0 12 6 11 14 5 15 0 20 0 26c0 6 5 6 16 6z"></path>
+      </symbol>
+      <symbol id="icon-sun" viewBox="0 0 64 64">
+        <circle class="sun" cx="22" cy="22" r="18"></circle>
+      </symbol>
+    </defs>
+  </svg>
+  <div class="top">
+    <div class="top-bg"></div>
+    <div class="fog"></div>
+    <div class="temsvg-wrap">
+      <svg class="temsvg" viewBox="-12 -24 424 220">
+        <polyline class="temp-line" points="0,100 50,80 100,60 150,70 200,80 250,120 300,130 350,90 400,100"></polyline>
+        <line class="now-line" x1="200" y1="20" x2="200" y2="150"></line>
+        <g class="pt" transform="translate(0 100)">
+          <circle class="pt-dot" r="3"></circle>
+          <text class="pt-label" y="-12">-1℃</text>
+        </g>
+        <g class="pt" transform="translate(50 80)">
+          <circle class="pt-dot" r="3"></circle>
+          <text class="pt-label" y="-12">3℃</text>
+        </g>
+        <g class="pt" transform="translate(100 60)">
+          <circle class="pt-dot" r="3"></circle>
+          <text class="pt-label" y="-12">5℃</text>
+        </g>
+        <g class="pt" transform="translate(150 70)">
+          <circle class="pt-dot" r="3"></circle>
+          <text class="pt-label" y="-12">4℃</text>
+        </g>
+        <g class="pt" transform="translate(200 80)">
+          <circle class="pt-dot" r="3"></circle>
+          <text class="pt-label" y="-12">3℃</text>
+        </g>
+        <g class="pt is-now" transform="translate(250 120)">
+          <circle class="pt-dot" r="3"></circle>
+          <text class="pt-label" y="-12">-3℃</text>
+        </g>
+        <g class="pt" transform="translate(300 130)">
+          <circle class="pt-dot" r="3"></circle>
+          <text class="pt-label" y="-12">-4℃</text>
+        </g>
+        <g class="pt" transform="translate(350 90)">
+          <circle class="pt-dot" r="3"></circle>
+          <text class="pt-label" y="-12">3℃</text>
+        </g>
+        <g class="pt" transform="translate(400 100)">
+          <circle class="pt-dot" r="3"></circle>
+          <text class="pt-label" y="-12">-1℃</text>
+        </g>
+      </svg>
+    </div>
+    <div class="weather-illustration rain">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <defs>   
+          <mask id="cloudMask">
+            <rect x="0" y="0" width="120" height="120" fill="black"></rect>
+            <circle cx="92" cy="88" r="26" fill="white"></circle>
+            <circle cx="78" cy="96" r="22" fill="white"></circle>
+            <circle cx="108" cy="96" r="22" fill="white"></circle>
+            <ellipse cx="92" cy="102" rx="40" ry="18" fill="white"></ellipse>
+            <!-- 雲-->
+          </mask>
+          <linearGradient id="cloudFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"></stop>
+            <stop offset="60%" stop-color="#EAF0F4" stop-opacity="0.95"></stop>
+            <stop offset="100%" stop-color="#C9D6E0" stop-opacity="0.95"></stop>
+            <!-- 雲-->
+          </linearGradient>
+          <radialGradient id="cloudHighlight" cx="35%" cy="30%" r="60%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.80"></stop>
+            <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0.10"></stop>
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"></stop>
+          </radialGradient>
+          <!-- 雲-->
+        </defs>
+        <g class="cloud" mask="url(#cloudMask)">
+          <rect class="cloud-body" x="38" y="60" width="96" height="60" rx="20" ry="20"></rect>
+          <rect class="cloud-core" x="44" y="70" width="84" height="44" rx="16" ry="16"></rect>
+          <ellipse class="cloud-highlight" cx="86" cy="84" rx="34" ry="22"></ellipse>
+          <!-- 雨滴-->
+        </g>
+        <g class="rain">
+          <g class="drop-wrap" transform="translate(92 108)">
+            <g class="drop-group drop-1">
+              <path class="drop" d="M0,-7 C-3,-3 -4,0 -4,2.6 C-4,5.7 -1.7,8 0,8 C1.7,8 4,5.7 4,2.6 C4,0 3,-3 0,-7 Z"></path>
+            </g>
+          </g>
+          <g class="drop-wrap" transform="translate(78 112)">   
+            <g class="drop-group drop-2">
+              <path class="drop" d="M0,-7 C-3,-3 -4,0 -4,2.6 C-4,5.7 -1.7,8 0,8 C1.7,8 4,5.7 4,2.6 C4,0 3,-3 0,-7 Z"></path>
+            </g>
+          </g>
+          <g class="drop-wrap" transform="translate(106 112)">   
+            <g class="drop-group drop-3">
+              <path class="drop" d="M0,-7 C-3,-3 -4,0 -4,2.6 C-4,5.7 -1.7,8 0,8 C1.7,8 4,5.7 4,2.6 C4,0 3,-3 0,-7 Z"></path>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="text_area is-cold">
+      <div class="status">Now</div>
+      <div class="temperature"> <span class="temp-value">-3℃</span></div>
+      <div class="temp_range">H: 5 ℃ / L: -4 ℃</div>
+      <div class="infos">
+        <div class="info-item"><span class="label">📌</span><span class="value">北極圈北緯 66° 34</span></div>
+        <div class="info-item"><span class="label">↻</span><span class="value">星期三 下午 02:59</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="dayweather is-active">
+      <div class="active-bg"></div>
+      <div class="dayweather-inner"></div>
+      <h3>MON</h3>
+      <div class="icon-wrap">
+        <svg viewBox="0 0 64 64">
+          <use href="#icon-sun" x="10" y="4"></use>
+          <use href="#icon-cloud" x="0" y="28"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="dayweather">
+      <div class="active-bg"></div>
+      <div class="dayweather-inner"></div>
+      <h3>TUE</h3>
+      <div class="icon-wrap">
+        <svg viewBox="0 0 64 64">
+          <use href="#icon-sun" x="10" y="10"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="dayweather">
+      <div class="active-bg"></div>
+      <div class="dayweather-inner"></div>
+      <h3>WED</h3>
+      <div class="icon-wrap">
+        <svg viewBox="0 0 64 64">
+          <use href="#icon-sun" x="10" y="4"></use>
+          <use href="#icon-cloud" x="0" y="28"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="dayweather">
+      <div class="active-bg"></div>
+      <div class="dayweather-inner"></div>
+      <h3>THU</h3>
+      <div class="icon-wrap">
+        <svg viewBox="0 0 64 64">
+          <use href="#icon-sun" x="10" y="4"></use>
+          <use href="#icon-cloud" x="0" y="28"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="dayweather">
+      <div class="active-bg"></div>
+      <div class="dayweather-inner"></div>
+      <h3>FRI</h3>
+      <div class="icon-wrap">
+        <svg viewBox="0 0 64 64">
+          <use href="#icon-cloud" x="0" y="28"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="dayweather">
+      <div class="active-bg"></div>
+      <div class="dayweather-inner"></div>
+      <h3>SAT</h3>
+      <div class="icon-wrap">
+        <svg viewBox="0 0 64 64">
+          <use href="#icon-cloud" x="0" y="28"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="dayweather">
+      <div class="active-bg"></div>
+      <div class="dayweather-inner"></div>
+      <h3>SUN</h3>
+      <div class="icon-wrap"> 
+        <svg viewBox="0 0 64 64">
+          <use href="#icon-sun" x="10" y="10"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="credit">Weather Box · 2026/01/29</div>
+</div>
+    <script src='https://code.jquery.com/jquery-3.7.1.min.js'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>
